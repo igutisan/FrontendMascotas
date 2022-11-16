@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Contacto</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <section class="container">
+    <div class="row">
+    <h3 class="center-align">CREAR PRODUCTO</h3>
+
+      <article class="col s6 offset-s3">
+        <form  [formGroup]="fgValidador" (ngSubmit)="GuardarProducto()">
+          
+          <div class="input-field">
+            <label for="nombre">Nombre</label>
+            <input formControlName="nombre" type="text" name="nombre" required>
+          </div>
+
+          <div class="input-field">
+            
+            <label for="Precio">Precio</label>
+            <input formControlName="precio" type="text" name="apellido" required>
+          </div>
+        
+          <div class="input-field">
+            <label for="detalle">Detalle</label>
+            <textarea name="mensaje" formControlName="detalle" id="" rows="10" class="materialize-textarea"  length="140" required></textarea>
+          </div>
+          
+          <p class="center-align">
+            <button [disabled]="!fgValidador.valid" class="waves-effect waves-light btn" type="submit"><i class="material-icons right">send</i>Crear</button>
+          </p>
+
+        </form>
+
+      </article>
+    </div>
+  </section>
+
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+</body>
+</html>
