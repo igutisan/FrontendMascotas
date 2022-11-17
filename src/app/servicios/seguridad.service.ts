@@ -14,7 +14,18 @@ export class SeguridadService {
 
   HttpHeaders: any;
   constructor(private http: HttpClient) {
-    this.VerificarSesionActual
+    this.VerificarSesionActual();
+  }
+
+  VerificarRol(){
+    let rol = this.ObtenerRol()
+    if(rol === "Asesor"){
+      alert("funciona")
+      return rol
+    }else{
+      let mal="mal"
+      return mal
+    }
   }
 
   VerificarSesionActual(){
@@ -77,6 +88,15 @@ export class SeguridadService {
     if (datosString){
       let datos = JSON.parse(datosString);
       return datos.tk;
+    }else{
+      return '';
+    }
+  }
+  ObtenerRol(){
+    let datosString = localStorage.getItem("datosSesion");
+    if (datosString){
+      let info = JSON.parse(datosString);
+      return info.datos.rol;
     }else{
       return '';
     }

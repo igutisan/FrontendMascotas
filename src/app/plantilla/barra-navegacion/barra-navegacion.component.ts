@@ -12,14 +12,22 @@ export class BarraNavegacionComponent implements OnInit {
 
   seInicioSesion: boolean = false;
 
+  Permisos = ''
+ 
+
   subs: Subscription = new Subscription();
 
 
   constructor(private seguridadServicio: SeguridadService) { }
 
   ngOnInit(): void {
+    
     this.subs= this.seguridadServicio.ObtenerDatosUsuarioEnSesion().subscribe((datos: ModeloIdentificar) => {
-      this.seInicioSesion = datos.estaIdentificado
+      this.seInicioSesion = datos.estaIdentificado;
+      this.Permisos=this.seguridadServicio.ObtenerRol();
+      
+      
+      
     })
   }
 

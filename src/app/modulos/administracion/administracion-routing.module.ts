@@ -15,7 +15,7 @@ const routes: Routes = [
     component: CrearUsuarioComponent
   },
   {
-    path: 'editar-usuario',
+    path: 'editar-usuario/:id',
     component: EditarUsuarioComponent
   },
   {
@@ -23,7 +23,7 @@ const routes: Routes = [
     component: EliminarUsuarioComponent
   },
   {
-    path: 'buscar-usuario',
+    path: 'listar-usuarios',
     component: BuscarUsuarioComponent
   },
   {

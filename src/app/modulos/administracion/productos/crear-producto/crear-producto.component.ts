@@ -7,6 +7,7 @@ import {from} from 'rxjs';
 import{ FormBuilder, FormGroup, Validators} from '@angular/forms'
 
 import { Route, Router } from '@angular/router';
+import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
 @Component({
   selector: 'app-crear-producto',
@@ -22,7 +23,8 @@ export class CrearProductoComponent implements OnInit {
   });
   constructor(private fb: FormBuilder,
     private servicioProducto: ProductosService,
-    private router: Router) { }
+    private router: Router,
+    private seguridadrol: SeguridadService) { }
 
   ngOnInit(): void {
   }
@@ -37,6 +39,8 @@ export class CrearProductoComponent implements OnInit {
 
     this.servicioProducto.CrearProducto(producto).subscribe((datos: ModeloProducto) => {
       alert("El producto se almaceno correctamente")
+      //this.seguridadrol.ObtenerRol()
+      alert(this.seguridadrol.ObtenerRol())
       this.router.navigate(["/administracion/listar-productos"]);
     }, (error:any) =>{
       alert("Error almacenando el producto")
