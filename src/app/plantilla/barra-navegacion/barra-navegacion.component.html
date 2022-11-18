@@ -14,9 +14,8 @@
 
 <ul class="sidenav" id="mobile-demo">
   <li><a routerLink="/administracion/usuarios">Personas</a></li>
-      <li *ngIf="seInicioSesion"><a routerLink="/administracion/productos">Productos</a></li>
-      <li *ngIf="seInicioSesion"><a routerLink="seguridad/cambio-contrasena">Cambiar clave</a></li>
-      <li *ngIf="seInicioSesion"><a routerLink="/seguridad/identificacion">Iniciar Sesion</a></li>
-      <li *ngIf="seInicioSesion"><a routerLink="/seguridad/cerrarSesion">Cerrar Sesion</a></li>
-      
-    </ul>
+  <li *ngIf="seInicioSesion"><a routerLink="/administracion/productos">Productos</a></li>
+  <li *ngIf="seInicioSesion"><a routerLink="seguridad/cambio-contrasena">Cambiar clave</a></li>
+  <li *ngIf="seInicioSesion"><a routerLink="/seguridad/identificacion">Iniciar Sesion</a></li>
+  <li *ngIf="seInicioSesion"><a routerLink="/seguridad/cerrarSesion">Cerrar Sesion</a></li>
+</ul>
