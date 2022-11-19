@@ -1,3 +1,4 @@
+import { CrearClienteComponent } from './crear-cliente/crear-cliente.component';
 import { ListarPlanesComponent } from './listar-planes/listar-planes.component';
 import { ListarProductoComponent } from './listar-producto/listar-producto.component';
 import { EliminarMascotaComponent } from './eliminar-mascota/eliminar-mascota.component';
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path:"listar-planes",
     component:ListarPlanesComponent
+  },
+  {
+    path:"crear-cliente",
+    component:CrearClienteComponent
   }
 
 ];

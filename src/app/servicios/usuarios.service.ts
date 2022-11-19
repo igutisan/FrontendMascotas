@@ -20,6 +20,15 @@ export class UsuariosService {
     return this.http.get<ModeloUsuario>(`${this.url}/usuarios/${id}`)
     
   }
+  ObtenerCliente(): Observable<ModeloUsuario[]>{
+    return this.http.get<ModeloUsuario[]>(`${this.url}/usuarios?filter[where][Rol]=Cliente`)
+  }
+  ObtenerAsesor(): Observable<ModeloUsuario[]>{
+    return this.http.get<ModeloUsuario[]>(`${this.url}/usuarios?filter[where][Rol]=Asesor`)
+  }
+  ObtenerAdministrador(): Observable<ModeloUsuario[]>{
+    return this.http.get<ModeloUsuario[]>(`${this.url}/usuarios?filter[where][Rol]=Administrador`)
+  }
 
   ObtenerUsuario():Observable<ModeloUsuario[]>{
     return this.http.get<ModeloUsuario[]>(`${this.url}/usuarios`)

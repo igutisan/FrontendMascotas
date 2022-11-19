@@ -16,11 +16,30 @@ export class BuscarUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.ObtenerUsuarios();
+    this.ObtenerAsesores();
+    this.ObtenerClientes();
+    this.ObtenerAdministradores();
   
   }
   ObtenerUsuarios(){
     this.usuarioServicio.ObtenerUsuario().subscribe((datos:ModeloUsuario[]) => {
       this.listadoUsuario= datos;
+    })
+  }
+
+  ObtenerAdministradores(){
+    this.usuarioServicio.ObtenerAdministrador().subscribe((datos: ModeloUsuario[]) => {
+      this.listadoUsuario = datos;
+    })
+  }
+  ObtenerClientes(){
+    this.usuarioServicio.ObtenerCliente().subscribe((datos: ModeloUsuario[]) => {
+      this.listadoUsuario = datos
+    })
+  }
+  ObtenerAsesores(){
+    this.usuarioServicio.ObtenerAsesor().subscribe((datos: ModeloUsuario[]) => {
+      this.listadoUsuario =datos;
     })
   }
 

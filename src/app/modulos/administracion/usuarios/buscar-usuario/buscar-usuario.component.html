@@ -20,8 +20,8 @@
             <form class="col s12">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">search</i>
-                    <input type="text"  id="Buscar" class="autocomplete">
-                    <label for="buscar">Buscar usuario...</label>
+                    <input type="text"  id="Buscar" class="forms-control" [(ngModel)]="filterPost" name="filterPost">
+                    
                 </div>
 
                 
@@ -40,29 +40,18 @@
 src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js">
 </script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    var options ={
-        data:{
-            "usuario1":null,
-            "usuario2":null,
-            "usuario3":null,
-            },
-            onAutocomplete:function(texto){
-                //console.log(`diste clic ${texto}`);
-                respuesta.innerHTML =`<h3>El usuario que buscabas es ${texto}<h3>`;
-            }
-    }
-    
-    var elems = document.querySelectorAll('.autocomplete');
-    var instances = M.Autocomplete.init(elems, options);
-  });
+  
 
   const respuesta = document.getElementById("respuesta");
 </script>
 
 <button class="btn waves-effect green" routerLink="/administracion/crear-usuario">Crear Usuario<i class="material-icons right">done_all</i></button>
-
-
+<br>
+<br>
+<button class="btn waves-effect grey" (click)="ObtenerAdministradores()">Administradores</button>
+<button class="btn waves-effect grey" (click)="ObtenerAsesores()">Asesores</button>
+<button class="btn waves-effect grey" (click)="ObtenerClientes()">Clientes</button>
+<button class="btn waves-effect grey" (click)="ObtenerUsuarios()">Todos</button>
 <table class="table responsive">
     <thead>
         <tr>
@@ -77,7 +66,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materializ
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let u of listadoUsuario">
+        <tr *ngFor="let u of listadoUsuario | filter:filterPost">
             <td>
                 {{u.Nombre}}
             </td>

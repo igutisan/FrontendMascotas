@@ -16,6 +16,13 @@ export class ClienteService {
   constructor(private http: HttpClient, private seguridadServicio: SeguridadService) {
     this.token = this.seguridadServicio.ObtenerToken();
    }
+   CrearUsuario(usuario:ModeloUsuario):Observable<ModeloUsuario>{
+    return this.http.post<ModeloUsuario>(`${this.url}/usuarios`, usuario,{
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.token}`
+      })
+    })
+  }
 
    ObetenerMascotasPorDueno(id: string): Observable<ModeloMascota[]>{
     return this.http.get<ModeloMascota[]>(`${this.url}/mascotas?filter[where][usuarioId]=${id}`)
