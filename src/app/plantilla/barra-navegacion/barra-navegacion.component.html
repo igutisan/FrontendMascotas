@@ -10,7 +10,7 @@
       <li *ngIf="seInicioSesion && Permisos === 'Asesor'"><a routerLink="/asesor/listado-mascotas">Solicitudes</a></li>
       <li *ngIf="seInicioSesion && Permisos === 'Cliente'"><a routerLink="/cliente/listar-producto">Productos</a></li>
       <li *ngIf="seInicioSesion && Permisos === 'Cliente'"><a routerLink="/cliente/listar-planes">Planes</a></li>
-      <li *ngIf="seInicioSesion"><a routerLink="/cliente/listar-mascota">Mascotas</a></li>
+      <li *ngIf="seInicioSesion && Permisos === 'Cliente'"><a routerLink="/cliente/listar-mascota">Mascotas</a></li>
       <li *ngIf="!seInicioSesion"><a routerLink="/seguridad/identificar">Iniciar Sesion</a></li>
       <li *ngIf="!seInicioSesion"><a routerLink="/cliente/crear-cliente">Registrarse</a></li>
       <li *ngIf="seInicioSesion"><a routerLink="/seguridad/cerrarSesion">Cerrar Sesion</a></li>

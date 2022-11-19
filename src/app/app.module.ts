@@ -17,6 +17,8 @@ import { PiePaginaComponent } from './plantilla/pie-pagina/pie-pagina.component'
 import { InicioComponent } from './plantilla/inicio/inicio.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PipesPipe } from './modulos/pipes.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BarraNavegacionComponent,
     PiePaginaComponent,
     InicioComponent,
-    ErrorComponent
+    ErrorComponent,
+    PipesPipe
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

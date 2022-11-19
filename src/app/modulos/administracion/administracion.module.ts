@@ -7,6 +7,7 @@ import { CrearPlanComponent } from './planes/crear-plan/crear-plan.component';
 import { EditarPlanComponent } from './planes/editar-plan/editar-plan.component';
 import { EliminarPlanComponent } from './planes/eliminar-plan/eliminar-plan.component';
 import { BuscarPlanComponent } from './planes/buscar-plan/buscar-plan.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -23,7 +24,8 @@ import { BuscarPlanComponent } from './planes/buscar-plan/buscar-plan.component'
     CommonModule,
     AdministracionRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule
    
   ]
 })
