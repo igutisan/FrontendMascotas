@@ -16,6 +16,9 @@
       <h2 class="black-text">Revisión de Solicitudes de Afiliación</h2>
 
       <div class="container">
+        <button class="btn waves-effect green" (click)="ObetenerMascotasRechazadas()">Rechazadas</button>
+        <button class="btn waves-effect green" (click)="ObtenerMascotasAceptadas()">Aceptadas</button>
+        <button class="btn waves-effect green" (click)="ObtenerMascotaPendiente()">Pendientes</button>
         <div>
 
             <table class="striped centered responsive-table">
@@ -37,7 +40,7 @@
                     <td>{{m.Estado}}</td>
                     <td>{{m.Detalle}}</td>
                     <td>
-                        <a class="waves-effect waves-light btn boton-asesor-done"><i class="material-icons left">done</i>Detalles</a>
+                        <a  routerLink="/asesor/detalles-mascotas/{{m.Id}}" class="waves-effect waves-light btn boton-asesor-done"><i class="material-icons left">done</i>Detalles</a>
                     </td>
                       
                 </tbody>

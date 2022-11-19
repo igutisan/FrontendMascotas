@@ -21,6 +21,7 @@ export class ClienteService {
     return this.http.get<ModeloMascota[]>(`${this.url}/mascotas?filter[where][usuarioId]=${id}`)
 
    }
+  
 
    ObtenerMascotasXId(id: string): Observable<ModeloMascota>{
     return this.http.get<ModeloMascota>(`${this.url}/mascotas/${id}`)

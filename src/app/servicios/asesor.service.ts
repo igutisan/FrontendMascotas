@@ -15,6 +15,19 @@ export class AsesorService {
     this.token = this.SeguridadServicio.ObtenerToken();
   }
 
+  ObetenerMascotasPorEstado(): Observable<ModeloMascota[]>{
+    return this.http.get<ModeloMascota[]>(`${this.url}/mascotas?filter[where][Estado]=pendiente`)
+
+   }
+   ObetenerMascotasRechazadas(): Observable<ModeloMascota[]>{
+    return this.http.get<ModeloMascota[]>(`${this.url}/mascotas?filter[where][Estado]=Rechazado`)
+
+   }
+   ObetenerMascotasAceptadas(): Observable<ModeloMascota[]>{
+    return this.http.get<ModeloMascota[]>(`${this.url}/mascotas?filter[where][Estado]=Aceptado`)
+
+   }
+
   ObtenerMascotas():Observable<ModeloMascota[]>{
     return this.http.get<ModeloMascota[]>(`${this.url}/mascotas`)
   }

@@ -32,84 +32,74 @@
     <nav class="white"></nav>
 	<br>
     <div class="container white" style="min-height:  100vh; padding: 20px"> <!-- CONTAINER -->
-        <h1>Cliente</h1>
+        <h1>Detalle Solicitudes</h1>
 		<div class="row"> <!-- ROW -->	
      		
-			  <form  [formGroup]="fgValidador" (ngSubmit)="EditarMascota()"method="post" id="registro">
+			  <form  [formGroup]="fgValidador"  method="post" id="registro">
 				<input type="hidden" formControlName="id">
 				<input type="hidden" formControlName="idPlan">
                 <div class="input-field col s6">
-					<input formControlName="nombre" id="icon_prefix" type="text" class="validate" required>
+					<input readonly formControlName="nombre" id="icon_prefix" type="text" class="validate" required>
 					<label class="active" for="icon_prefix">n</label>
 				</div>
+                
 				
                     <div class="input-field col s6">
-                        <input formControlName="especie" id="icon_prefix" type="text" class="validate" required>
+                        <input readonly formControlName="especie" id="icon_prefix" type="text" class="validate" required>
                         <label class="active" for="icon_prefix">especie</label>
                     </div>
                     <div class="input-field col l4 m4">
-                        <input formControlName="raza" id="icon_telephone" type="text" class="validate" required>
+                        <input readonly formControlName="raza" id="icon_telephone" type="text" class="validate" required>
                         <label class="active" for="icon_telephone">Raza</label>
                     </div>
 				    <div class="input-field col l4 col-m4">
-					    <input formControlName="edad" type="text" name="edad" id="edad" required>
+					    <input readonly formControlName="edad" type="text" name="edad" id="edad" required>
 					    <label class="active" for="fecha_ingreso">Edad</label>
 				    </div>
 					<div class="input-field col l4 col-m4">
-					    <input formControlName="peso" type="text" name="peso" id="peso" required>
+					    <input readonly formControlName="peso" type="text" name="peso" id="peso" required>
 					    <label class="active" for="fecha_ingreso">Peso</label>
 				    </div>
 					<div class="input-field col l6 col-m6">
-					    <input formControlName="tamano" type="text" name="tamaño" id="tamaño" required>
+					    <input readonly formControlName="tamano" type="text" name="tamaño" id="tamaño" required>
 					    <label class="active" for="fecha_ingreso">Tamaño</label>
 				    </div>
 					<div class="input-field col l6 col-m6">
-					    <input formControlName="sexo" type="text" name="sexo" id="sexo" required>
+					    <input readonly formControlName="sexo" type="text" name="sexo" id="sexo" required>
 					    <label class="active" for="fecha_ingreso">Sexo</label>
 				    </div>
 					<div class="input-field col l12 col-m12">
 						<div class="file-path-wrapper ">
-							<label class="active" for="foto">Foto</label>
-					    	<input formControlName="foto" type="text" name="foto" id="foto">	
+							<label  class="active" for="foto">Foto</label>
+					    	<input readonly formControlName="foto" type="text" name="foto" id="foto">	
 				    	</div>
 					</div>
+
 					<br><br>
 					<div class="input-field col l6 col-m6">
-					    <input formControlName="color" type="text" name="color" id="color" required>
+					    <input readonly formControlName="color" type="text" name="color" id="color" required>
 					    <label class="active" for="fecha_ingreso">color</label>
 				    </div>
 					<!--<div class="input-field col l6 col-m6">
-					    <input formControlName="detalle" type="text" name="detalle" id="detalle" required>
+					    <input  formControlName="estado" type="text" name="color" id="color" required>
+					    <label class="active" for="fecha_ingreso">estado</label>
+				    </div>-->
+					<div class="input-field col l6 col-m6">
+					    <textarea formControlName="detalle" type="text" name="detalle" id="detalle" required></textarea>
 					    <label for="fecha_ingreso">detalle</label>
 				    </div>
-					<div class="input-field col l6 col-m6">
-					    <input formControlName="" type="text" name="estado" id="estado" required>
-					    <label for="fecha_ingreso">Estado</label>
-				    </div>
+					
 
-                    <div class="input-field col s6">
-                        <select formControlName="nombre">
-                          <option value="" name="tipo de plan">Tipo de Plan</option>
-                          <option value="1">Option 1</option>
-                          <option value="2">Option 2</option>
-                          <option value="3">Option 3</option>
-                        </select>
-                        <label>selecciona tu plan</label>
-                      </div>-->
+                    
          
 				   
                     <div class="clearfix"></div>
 				<div class="input-field col l12 m12">
-				<button type="submit" class="btn waves-effect">
-					<i class="material-icons right">check</i>
-					<input type="hidden" name="num" value="50"> 
-                    <input class="botb" type="submit" value="">Agregar
-				</button>
-                <!--<button type="submit" class="btn waves-effect">
-					<i class="material-icons right">edit</i>
-					<input type="hidden" name="num" value="50"> 
-                    <input class="botb" type="submit" value=""><a href="editar-mascota.component.html" style="text-decoration: none; color: white">Editar
-				</button>-->
+				
+				<button class="btn waves-effect green" (click)="EditarMascota()">Aceptar<i class="material-icons right">done_all</i></button>
+                
+				<button class="btn waves-effect red" (click)="Rechazado()">Rechazar<i class="material-icons right">done_all</i></button>	
+				
                
 			</div>
                 </form>    

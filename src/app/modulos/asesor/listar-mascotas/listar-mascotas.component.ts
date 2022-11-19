@@ -13,13 +13,27 @@ export class ListarMascotasComponent implements OnInit {
   constructor(private mascotaServicio: AsesorService) { }
 
   ngOnInit(): void {
-    this.ObtenerMascota();
-  
+    this.ObtenerMascotaPendiente();
+    this.ObtenerMascotasAceptadas();
+    this.ObetenerMascotasRechazadas();
   }
-  ObtenerMascota(){
-    this.mascotaServicio.ObtenerMascotas().subscribe((datos:ModeloMascota[]) => {
+  ObtenerMascotaPendiente(){
+    this.mascotaServicio.ObetenerMascotasPorEstado().subscribe((datos:ModeloMascota[]) => {
       this.listadoMascota= datos;
     })
   }
+  ObtenerMascotasAceptadas(){
+    this.mascotaServicio.ObetenerMascotasAceptadas().subscribe((datos:ModeloMascota[]) => {
+      this.listadoMascota= datos;
+  })
 
 }
+ObetenerMascotasRechazadas(){
+  this.mascotaServicio.ObetenerMascotasRechazadas().subscribe((datos:ModeloMascota[]) => {
+    this.listadoMascota= datos;
+  })
+}
+}
+
+
+

@@ -1,18 +1,16 @@
-import { SeguridadService } from './../../../servicios/seguridad.service';
-import { ClienteService } from 'src/app/servicios/cliente.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ModeloPlanes } from 'src/app/modelos/planes.modelo';
-import { PlanesService } from 'src/app/servicios/planes.service';
 import { ModeloMascota } from 'src/app/modelos/Mascota.modelo';
+import { ClienteService } from 'src/app/servicios/cliente.service';
+import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
 @Component({
-  selector: 'app-editar-mascota',
-  templateUrl: './editar-mascota.component.html',
-  styleUrls: ['./editar-mascota.component.css']
+  selector: 'app-definir-estado',
+  templateUrl: './definir-estado.component.html',
+  styleUrls: ['./definir-estado.component.css']
 })
-export class EditarMascotaComponent implements OnInit {
+export class DefinirEstadoComponent implements OnInit {
 
   id:string = '';
   idUsuario = '';
@@ -28,7 +26,9 @@ export class EditarMascotaComponent implements OnInit {
     'edad': ['',[Validators.required]],
     'tamano': ['',[Validators.required]],
     'sexo': ['',[Validators.required]],
-    'foto': ['',[Validators.required]]
+    'foto': ['',[Validators.required]],
+    'detalle': ['',[Validators.required]],
+    
     
     
   });
@@ -50,7 +50,6 @@ export class EditarMascotaComponent implements OnInit {
 
     this.servicioMascota.ObtenerMascotasXId(this.id).subscribe((datos: ModeloMascota) => {
       this.fgValidador.controls["id"].setValue(this.id);
-      
       this.fgValidador.controls["nombre"].setValue(datos.Nombre);
       this.fgValidador.controls["especie"].setValue(datos.Especie); 
       this.fgValidador.controls["color"].setValue(datos.Color);
@@ -61,8 +60,14 @@ export class EditarMascotaComponent implements OnInit {
       this.fgValidador.controls["sexo"].setValue(datos.Sexo); 
       this.fgValidador.controls["foto"].setValue(datos.Foto); 
       this.fgValidador.controls["idPlan"].setValue(this.idPlan); 
+      this.fgValidador.controls["detalle"].setValue(datos.Detalle);
+      
 
     })
+  }
+
+  Aceptar(){
+
   }
 
   EditarMascota(){
@@ -75,6 +80,8 @@ export class EditarMascotaComponent implements OnInit {
     let Tamano = parseInt(this.fgValidador.controls["tamano"].value);
     let sexo = this.fgValidador.controls["sexo"].value;
     let foto = this.fgValidador.controls["foto"].value;
+    let detalle = this.fgValidador.controls["detalle"].value;
+    //let estado = this.fgValidador.controls["estado"].value;
     let mascota = new ModeloMascota();
     mascota.Nombre = nombre;
     mascota.Especie = especie;
@@ -88,8 +95,8 @@ export class EditarMascotaComponent implements OnInit {
     mascota.Id = this.id;
     mascota.usuarioId= this.idUsuario;
     mascota.planId=this.idPlan;
-    mascota.Estado="pendiente";
-    mascota.Detalle="pendiente"
+    mascota.Estado= "Aceptado";
+    mascota.Detalle= detalle
 
    
     this.servicioMascota.ActualizarMascota(mascota).subscribe((datos: ModeloMascota) => {
@@ -100,4 +107,46 @@ export class EditarMascotaComponent implements OnInit {
   }
   )}
 
-}
+  Rechazado(){
+    let nombre = this.fgValidador.controls["nombre"].value;
+    let especie = this.fgValidador.controls["especie"].value;
+    let color = this.fgValidador.controls["color"].value;
+    let raza = this.fgValidador.controls["raza"].value;
+    let peso = parseInt(this.fgValidador.controls["peso"].value);
+    let edad = parseInt(this.fgValidador.controls["edad"].value);
+    let Tamano = parseInt(this.fgValidador.controls["tamano"].value);
+    let sexo = this.fgValidador.controls["sexo"].value;
+    let foto = this.fgValidador.controls["foto"].value;
+    let detalle = this.fgValidador.controls["detalle"].value;
+    //let estado = this.fgValidador.controls["estado"].value;
+    let mascota = new ModeloMascota();
+    mascota.Nombre = nombre;
+    mascota.Especie = especie;
+    mascota.Color = color;
+    mascota.Raza = raza;
+    mascota.Peso = peso;
+    mascota.Edad = edad;
+    mascota.Tamano = Tamano
+    mascota.Sexo = sexo;
+    mascota.Foto = foto;
+    mascota.Id = this.id;
+    mascota.usuarioId= this.idUsuario;
+    mascota.planId=this.idPlan;
+    mascota.Estado= "Rechazado";
+    mascota.Detalle= detalle
+
+   
+    this.servicioMascota.ActualizarMascota(mascota).subscribe((datos: ModeloMascota) => {
+      alert("la mascota se actualizo correctamente")
+      this.router.navigate(["/asesor/listado-mascotas"]);
+    }, (error:any) =>{
+      alert("Error actualizando la mascota")
+  }
+  )}
+   
+  
+
+  }
+
+
+
