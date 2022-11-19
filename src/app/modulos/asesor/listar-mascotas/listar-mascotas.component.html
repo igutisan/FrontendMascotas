@@ -1,0 +1,55 @@
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="listar-mascotas.component.css">
+  <link rel="stylesheet" type="text/html" href="listar-mascotas.component.html">
+
+  
+</head>
+
+<body>
+  <div class="section"></div>
+  <main class="container">
+
+      <h2 class="black-text">Revisión de Solicitudes de Afiliación</h2>
+
+      <div class="container">
+        <div>
+
+            <table class="striped centered responsive-table">
+                <thead>
+                  <tr>
+                      
+                      <th>Nombre Mascota</th>
+                      <th>Estado Solicitud</th>
+                      <th>Mensaje</th>
+                      <th>Detalle</th>
+                     
+                      
+                  </tr>
+                </thead>
+        
+                <tbody>
+                  <tr *ngFor="let m of listadoMascota">
+                    <td>{{m.Nombre}}</td>
+                    <td>{{m.Estado}}</td>
+                    <td>{{m.Detalle}}</td>
+                    <td>
+                        <a class="waves-effect waves-light btn boton-asesor-done"><i class="material-icons left">done</i>Detalles</a>
+                    </td>
+                      
+                </tbody>
+              </table>
+        </div>
+      </div>
+
+  </main>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+</body>
+
+</html>

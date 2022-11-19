@@ -1,0 +1,31 @@
+
+<table class="table responsive">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>detalle</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of listadoPlanes">
+            <td>
+                {{p.NombrePlan}}
+            </td>
+            <td>
+                {{p.Precio}}
+            </td>
+            <td>
+                {{p.Detalle}}
+            </td>
+      
+
+            <td>
+                <button class="btn waves-effect green" routerLink="/cliente/crear-mascota/{{p.Id}}">Afiliarse <i class="material-icons right">edit</i> </button>
+            </td>
+           
+            
+        </tr>
+    </tbody>
+</table>

@@ -1,3 +1,5 @@
+import { ListarPlanesComponent } from './listar-planes/listar-planes.component';
+import { ListarProductoComponent } from './listar-producto/listar-producto.component';
 import { EliminarMascotaComponent } from './eliminar-mascota/eliminar-mascota.component';
 import { EditarMascotaComponent } from './editar-mascota/editar-mascota.component';
 import { BuscarMascotaComponent } from './buscar-mascota/buscar-mascota.component';
@@ -7,7 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path:"crear-mascota",
+    path:"crear-mascota/:id",
     component: CrearMascotaComponent
   },
   {
@@ -15,12 +17,20 @@ const routes: Routes = [
     component:BuscarMascotaComponent
   },
   {
-    path:"editar-mascota/:id",
+    path:"editar-mascota/:id/:idplan",
     component:EditarMascotaComponent
   },
   {
-    path:"eliminar-mascota",
+    path:"eliminar-mascota/:id",
     component:EliminarMascotaComponent
+  },
+  {
+    path:"listar-producto",
+    component:ListarProductoComponent
+  },
+  {
+    path:"listar-planes",
+    component:ListarPlanesComponent
   }
 
 ];

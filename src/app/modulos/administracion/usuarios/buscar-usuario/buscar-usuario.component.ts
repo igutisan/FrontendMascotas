@@ -19,8 +19,8 @@ export class BuscarUsuarioComponent implements OnInit {
   
   }
   ObtenerUsuarios(){
-    this.usuarioServicio.ObtenerUsuario().subscribe((datos:ModeloProducto[]) => {
-      this.listadoUsuario=datos;
+    this.usuarioServicio.ObtenerUsuario().subscribe((datos:ModeloUsuario[]) => {
+      this.listadoUsuario= datos;
     })
   }
 

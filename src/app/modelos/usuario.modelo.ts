@@ -1,5 +1,5 @@
 export class ModeloUsuario{
-    Id?: string;
+    id?: string;
     Documento?: string;
     Nombre?: string;
     Apellido?: string;

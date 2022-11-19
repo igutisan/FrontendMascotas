@@ -1,13 +1,13 @@
 
-<a routerLink="/administracion/crear-producto" class="btn">Nuevo Producto</a>
 
+<button class="btn waves-effect green" routerLink="/administracion/crear-producto">Crear Producto<i class="material-icons right">done_all</i></button>
 <table class="table responsive">
     <thead>
         <tr>
             <th>Nombre</th>
             <th>Precio</th>
-            <th>imagen</th>
-            <th>Editar</th>
+            <th>detalle</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -21,9 +21,14 @@
             <td>
                 {{p.Detalle}}
             </td>
-          
+      
+
             <td>
-                <a routerLink="/administracion/editar-producto/{{p.Id}}" class="btn">Editar producto</a>
+                <button class="btn waves-effect green" routerLink="/administracion/editar-producto/{{p.Id}}">Editar Producto <i class="material-icons right">edit</i> </button>
+            </td>
+           
+            <td>
+                <button class="btn waves-effect red" routerLink="/administracion/eliminar-producto/{{p.Id}}">Borrar Producto<i class="material-icons right">delete_forever</i></button>
             </td>
         </tr>
     </tbody>

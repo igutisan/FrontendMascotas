@@ -1,0 +1,31 @@
+
+<table class="table responsive">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>detalle</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of listadoRegistros">
+            <td>
+                {{p.Nombre}}
+            </td>
+            <td>
+                {{p.Precio}}
+            </td>
+            <td>
+                {{p.Detalle}}
+            </td>
+      
+
+            <td>
+                <button class="btn waves-effect blue" >Comprar<i class="material-icons right">edit</i> </button>
+            </td>
+           
+           
+        </tr>
+    </tbody>
+</table>

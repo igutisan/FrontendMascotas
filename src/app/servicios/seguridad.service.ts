@@ -16,6 +16,16 @@ export class SeguridadService {
   constructor(private http: HttpClient) {
     this.VerificarSesionActual();
   }
+  VerificacionId(){
+    let id = this.ObetenerId()
+    if(id){
+      
+      return id
+    }else{
+      let mal="mal"
+      return mal
+    }
+  }
 
   VerificarRol(){
     let rol = this.ObtenerRol()
@@ -97,6 +107,15 @@ export class SeguridadService {
     if (datosString){
       let info = JSON.parse(datosString);
       return info.datos.rol;
+    }else{
+      return '';
+    }
+  }
+  ObetenerId(){
+    let datosString = localStorage.getItem("datosSesion");
+    if (datosString){
+      let info = JSON.parse(datosString);
+      return info.datos.id;
     }else{
       return '';
     }

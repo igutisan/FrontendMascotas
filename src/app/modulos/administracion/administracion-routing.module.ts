@@ -1,3 +1,4 @@
+import { CrearPlanComponent } from './planes/crear-plan/crear-plan.component';
 import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
@@ -8,6 +9,9 @@ import {BuscarUsuarioComponent} from './usuarios/buscar-usuario/buscar-usuario.c
 import {CrearUsuarioComponent} from './usuarios/crear-usuario/crear-usuario.component';
 import {EditarUsuarioComponent} from './usuarios/editar-usuario/editar-usuario.component';
 import {EliminarUsuarioComponent} from './usuarios/eliminar-usuario/eliminar-usuario.component';
+import { EditarPlanComponent } from './planes/editar-plan/editar-plan.component';
+import { BuscarPlanComponent } from './planes/buscar-plan/buscar-plan.component';
+import { EliminarProductoComponent } from './productos/eliminar-producto/eliminar-producto.component';
 
 const routes: Routes = [
   {
@@ -19,7 +23,7 @@ const routes: Routes = [
     component: EditarUsuarioComponent
   },
   {
-    path: 'eliminar-usuario',
+    path: 'eliminar-usuario/:id',
     component: EliminarUsuarioComponent
   },
   {
@@ -37,6 +41,22 @@ const routes: Routes = [
   {
     path: 'editar-producto/:id',
     component: EditarProductoComponent
+  },
+  {
+    path: 'eliminar-producto/:id',
+    component: EliminarProductoComponent
+  },
+  {
+    path: 'crear-plan',
+    component: CrearPlanComponent
+  },
+  {
+    path: 'listar-plan',
+    component: BuscarPlanComponent
+  },
+  {
+    path: 'editar-plan/:id',
+    component: EditarPlanComponent
   },
 ];
 

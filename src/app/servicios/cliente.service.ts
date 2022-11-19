@@ -1,6 +1,6 @@
 import { ModeloMascota } from './../modelos/Mascota.modelo';
 import { SeguridadService } from './seguridad.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ModeloProducto } from '../modelos/producto.modelo';
 import { ModeloUsuario } from '../modelos/usuario.modelo';
@@ -17,8 +17,10 @@ export class ClienteService {
     this.token = this.seguridadServicio.ObtenerToken();
    }
 
-   //ObetenerMascotasPorDueno() 
+   ObetenerMascotasPorDueno(id: string): Observable<ModeloMascota[]>{
+    return this.http.get<ModeloMascota[]>(`${this.url}/mascotas?filter[where][usuarioId]=${id}`)
 
+   }
 
    ObtenerMascotasXId(id: string): Observable<ModeloMascota>{
     return this.http.get<ModeloMascota>(`${this.url}/mascotas/${id}`)

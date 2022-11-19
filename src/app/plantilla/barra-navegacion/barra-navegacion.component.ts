@@ -28,6 +28,7 @@ export class BarraNavegacionComponent implements OnInit {
       
       
       
+      
     })
   }
 

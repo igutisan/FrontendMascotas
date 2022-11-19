@@ -21,6 +21,15 @@ const routes: Routes = [
     path: 'administracion',
     loadChildren: () => import("./modulos/administracion/administracion.module").then(x => x.AdministracionModule)
   },
+  {
+    path: 'asesor',
+    loadChildren: () => import("./modulos/asesor/asesor.module").then(x => x.AsesorModule)
+  },
+  {
+    path: 'cliente',
+    loadChildren: () => import("./modulos/cliente/cliente.module").then(x => x.ClienteModule)
+  },
+  
 
   {
     path:"**",

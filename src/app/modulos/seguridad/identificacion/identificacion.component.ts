@@ -19,6 +19,7 @@ export class IdentificacionComponent implements OnInit {
     'clave': ['',[Validators.required]]
 
   });
+  id = ''
 
   constructor(private fb: FormBuilder,
     private servicioSeguridad: SeguridadService,
@@ -33,6 +34,7 @@ export class IdentificacionComponent implements OnInit {
     this.servicioSeguridad.Identificar(usuario,contrasenaCifrada).subscribe((datos:any) => {
       this.servicioSeguridad.AlmacenarSesion(datos);
       this.router.navigate(["/inicio"]);
+      
     }, (error:any) => {
       alert("Datos invalidos");
     })

@@ -1,4 +1,11 @@
+import { ModeloMascota } from './../../../modelos/Mascota.modelo';
+import { ClienteService } from 'src/app/servicios/cliente.service';
+import { SeguridadService } from 'src/app/servicios/seguridad.service';
+import { SeguridadModule } from './../../seguridad/seguridad.module';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { PlanesService } from 'src/app/servicios/planes.service';
 
 @Component({
   selector: 'app-buscar-mascota',
@@ -7,9 +14,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscarMascotaComponent implements OnInit {
 
-  constructor() { }
+  id = ''
+  listaMascotas: ModeloMascota[] = [];
+
+  constructor(private fb: FormBuilder,
+    private servicioMascotas: ClienteService,
+    private router: Router,
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    private Route: ActivatedRoute,
+    private seguridad: SeguridadService) { }
 
   ngOnInit(): void {
+    this.BuscarMascotas();
   }
+  BuscarMascotas(){
+    this.id = this.seguridad.ObetenerId();
+    this.servicioMascotas.ObetenerMascotasPorDueno(this.id).subscribe((datos: ModeloMascota[]) => {
+      this.listaMascotas = datos;
+    })
 
+}
 }

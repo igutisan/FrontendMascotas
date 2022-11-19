@@ -1,0 +1,33 @@
+<button class="btn waves-effect green" routerLink="/administracion/crear-plan">Crear Plan<i class="material-icons right">done_all</i></button>
+<table class="table responsive">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>detalle</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of listadoPlanes">
+            <td>
+                {{p.NombrePlan}}
+            </td>
+            <td>
+                {{p.Precio}}
+            </td>
+            <td>
+                {{p.Detalle}}
+            </td>
+      
+
+            <td>
+                <button class="btn waves-effect green" routerLink="/administracion/editar-plan/{{p.Id}}">Editar Plan <i class="material-icons right">edit</i> </button>
+            </td>
+           
+            <td>
+                <button class="btn waves-effect red"routerLink="/administracion/eliminar-plan/{{p.Id}}">Borrar Plan<i class="material-icons right">delete_forever</i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>

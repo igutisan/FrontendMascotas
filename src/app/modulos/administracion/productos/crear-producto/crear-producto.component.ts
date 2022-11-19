@@ -39,8 +39,6 @@ export class CrearProductoComponent implements OnInit {
 
     this.servicioProducto.CrearProducto(producto).subscribe((datos: ModeloProducto) => {
       alert("El producto se almaceno correctamente")
-      //this.seguridadrol.ObtenerRol()
-      alert(this.seguridadrol.ObtenerRol())
       this.router.navigate(["/administracion/listar-productos"]);
     }, (error:any) =>{
       alert("Error almacenando el producto")

@@ -12,14 +12,14 @@ import { ModeloUsuario } from 'src/app/modelos/usuario.modelo';
 export class EditarUsuarioComponent implements OnInit {
   id: string = '';
   fgValidador: FormGroup = this.fb.group({
-    id: ['', [Validators.required]],
-    Nombre: ['', [Validators.required]],
-    Apellido: ['', [Validators.required]],
-    Documento: ['', [Validators.required]],
-    Correo: ['', [Validators.required]],
-    Celular: ['', [Validators.required]],
-    Rol: ['', [Validators.required]],
-    Direccion: ['', [Validators.required]],
+    'id': ['', [Validators.required]],
+    'Nombre': ['', [Validators.required]],
+    'Apellido': ['', [Validators.required]],
+    'Documento': ['', [Validators.required]],
+    'Correo': ['', [Validators.required]],
+    'Celular': ['', [Validators.required]],
+    'Rol': ['', [Validators.required]],
+    'Direccion': ['', [Validators.required]],
   });
 
   constructor(
@@ -35,13 +35,14 @@ export class EditarUsuarioComponent implements OnInit {
   }
   BuscarUsuario() {
     this.servicioUsuario.ObtenerUsuariosXId(this.id).subscribe((datos:ModeloUsuario) => {
-    this.fgValidador.controls['nombre'].setValue(datos.Nombre);
-    this.fgValidador.controls['apellido'].setValue(datos.Apellido);
-    this.fgValidador.controls['correo'].setValue(datos.Correo);
-    this.fgValidador.controls['documento'].setValue(datos.Documento);
-    this.fgValidador.controls['celular'].setValue(datos.Celular);
-    this.fgValidador.controls['rol'].setValue(datos.Rol);
-    this.fgValidador.controls['direccion'].setValue(datos.Direccion);
+    this.fgValidador.controls['id'].setValue(this.id);
+    this.fgValidador.controls['Nombre'].setValue(datos.Nombre);
+    this.fgValidador.controls['Apellido'].setValue(datos.Apellido);
+    this.fgValidador.controls['Correo'].setValue(datos.Correo);
+    this.fgValidador.controls['Documento'].setValue(datos.Documento);
+    this.fgValidador.controls['Celular'].setValue(datos.Celular);
+    this.fgValidador.controls['Rol'].setValue(datos.Rol);
+    this.fgValidador.controls['Direccion'].setValue(datos.Direccion);
    })
   }
 
@@ -61,6 +62,7 @@ export class EditarUsuarioComponent implements OnInit {
     Usuario.Celular=celular
     Usuario.Rol=rol
     Usuario.Direccion=direccion
+    Usuario.id = this.id
 
     this.servicioUsuario.ActualizarUsuario(Usuario).subscribe((datos: ModeloUsuario) =>{
       alert("El usuario se actualizo correctamente")

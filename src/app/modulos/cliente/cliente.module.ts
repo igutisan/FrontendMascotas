@@ -7,6 +7,8 @@ import { EditarMascotaComponent } from './editar-mascota/editar-mascota.componen
 import { EliminarMascotaComponent } from './eliminar-mascota/eliminar-mascota.component';
 import { BuscarMascotaComponent } from './buscar-mascota/buscar-mascota.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListarProductoComponent } from './listar-producto/listar-producto.component';
+import { ListarPlanesComponent } from './listar-planes/listar-planes.component';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CrearMascotaComponent,
     EditarMascotaComponent,
     EliminarMascotaComponent,
-    BuscarMascotaComponent
+    BuscarMascotaComponent,
+    ListarProductoComponent,
+    ListarPlanesComponent
   ],
   imports: [
     CommonModule,

@@ -6,25 +6,24 @@
 	  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>      
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 <meta charset="utf-8">
-     <!-- Compiled and minified CSS -->
+     <!--CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$('select').formSelect();
-			 $('.datepicker').datepicker({
-			 	format:'dd/mm/yyyy'
-			 });
-		});
-
-		$(document).on('submit', '#registro', function(e){
-			e.preventDefault();
-			console.log($(this).serialize());
-		});
-	</script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('select').formSelect();
+                 
+                 
+                 
+            });
+    
+            $(document).on('submit', '#registro', function(e){
+                e.preventDefault();
+                console.log($(this).serialize());
+            });
+        </script>
 
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -33,150 +32,71 @@
 	<br>
 	<div class="container white" style="min-height:  100vh; padding: 20px"> <!-- CONTAINER -->
 		<div class="row"> <!-- ROW -->				
-			<form method="post" id="registro">
+			<form [formGroup]="fgValidador" (ngSubmit)="GuardarUsuario()" >
 				<div class="input-field col l6 col-m6">
 					<i class="material-icons prefix">account_circle</i>
-					<input type="text" name="nombres" id="nombres">
+					<input formControlName="Nombre" type="text" name="nombres" id="nombres" class="validate" required>
 					<label for="nombres">Nombres</label>
+
 				</div>
-				<div class="input-field col l6 col-m6">
+				<div class="input-field col l4 col-m6">
 					<i class="material-icons prefix">account_circle</i>
-					<input type="text" name="apellidos" id="apellidos">
+					<input formControlName="Apellido" type="text" name="apellidos" id="apellidos" class="validate" required>
 					<label for="apellidos">Apellidos</label>
 				</div>
-				<div class="clearfix"></div>
-				<div class="input-field col l4 col-m4">
-					<i class="material-icons prefix">date_range</i>
-					<input class="datepicker" type="text" name="fecha_nacimiento" id="fecha_nacimiento">
-					<label for="fecha_nacimiento">Fecha de nacimiento</label>
+				<div class="input-field col l4 col-m6">
+					<i class="material-icons prefix">account_circle</i>
+					<input formControlName="Documento" type="text" name="documento" id="documento" class="validate" required>
+					<label for="apellidos">Documento</label>
 				</div>
+				<div class="clearfix"></div>
+				
 				<div class="input-field col l5 m5">
 					<i class="material-icons prefix">directions</i>
-					<input type="text" name="lugar_nacimiento" id="lugar_nacimiento">
-					<label for="lugar_nacimiento">Lugar de nacimiento</label>
+					<input formControlName="Direccion" type="text" name="Direccion" id="Direccion" class="validate" required>
+					<label for="Direccion">Direccion</label>
 				</div>
-				<div class="input-field col l3 m3">
-					<i class="material-icons prefix">map</i>
-					<select name="pais">
-						<option selected disabled>Seleccione</option>
-						<option value="1">Amazonas</option>
-						<option value="2">Antioquia</option>
-						<option value="3">Arauca</option>
-                        <option value="4">Atlántico</option>
-                        <option value="5">Bogotá</option>
-                        <option value="6">Bolívar</option>
-                        <option value="7">Boyacá</option>
-                        <option value="8">Caldas</option>
-                        <option value="9">Caquetá</option>
-                        <option value="10">Casanare</option>
-                       
-						<option value="11">Cauca</option>
-						<option value="12">Cesar</option>
-						<option value="13">Chocó</option>
-                        <option value="14">Córdoba</option>
-                        <option value="15">Cundinamarca</option>
-                        <option value="16">Guainía</option>
-                        <option value="17">Guaviare</option>
-                        <option value="18">Huila</option>
-                        <option value="19">La Guajira</option>
-                        <option value="20">Magdalena</option>
-
-                        
-						<option value="21">Meta</option>
-						<option value="22">Nariño</option>
-						<option value="23">Norte de Santander</option>
-                        <option value="24">Putumayo</option>
-                        <option value="25">Quindío</option>
-                        <option value="26">Risaralda</option>
-                        <option value="27">San Andrés y Providencia</option>
-                        <option value="28">Santander</option>
-                        <option value="29"> Sucre</option>
-                        <option value="30">Tolima</option>
-                        <option value="18">Valle del Cauca</option>
-                        <option value="19">Vaupés</option>
-                        <option value="20">Vichada</option>
-					</select>
+                <div class="input-field col l6 m5">
+					<i class="material-icons prefix">phone_iphone</i>
+					<input formControlName="Celular" type="text" name="Telefono" id="Telefono" class="validate" required>
+					<label for="Telefono">Celular</label>
 				</div>
+				
 				<div class="clearfix"></div>
 				<div class="input-field col l6 m6">
 					<i class="material-icons prefix">email</i>
-					<input type="email" name="correo" id="correo" class="validate">
+					<input formControlName="Correo" type="email" name="correo" id="correo" class="validate" required>
 					<label for="correo">Correo</label>
-					<span class="helper-text" data-error="Escriba un correo válido." data-success="Correo válido">Su correo es muy importante para contactarlo</span>
+					<span class="helper-text" data-error="Escriba un correo válido." data-success="Correo válido"></span>
 				</div>
-				<div class="clearfix"></div>
-				<div class="input-field col l12 m12">
-					<i class="material-icons prefix">school</i>
-					<label>¿Posee algún grado universitario?</label>
+
+
+				<div class="input-field col l6 m5">
+					<i class="material-icons prefix">phone_iphone</i>
+					<input formControlName="Rol" type="text" name="Telefono" id="Telefono" class="validate" required>
+					<label for="Telefono">rol</label>
 				</div>
-				<div class="clearfix"></div>
-				<div class="input-field col l1 m1">
-					<label>
-						<input type="radio" name="universitario" value="1">
-						<span>Si</span>
-					</label>
-				</div>
-				<div class="input-field col l1 m1">
-					<label>
-						<input type="radio" name="universitario" value="0">
-						<span>No</span>
-					</label>
-				</div>
-				<div class="clearfix"></div>
-				<br>
-				<div class="input-field col l12 m12">
-					<i class="material-icons prefix">pets</i>
-					<label>Plan</label>
-				</div>
-				<div class="clearfix"></div>
-				<div class="input-field col l2 m2">
-					<label>
-						<input type="checkbox" name="musica" value="1">
-						<span>Plata</span>
-					</label>
-				</div>
-				<div class="input-field col l2 m2">
-					<label>
-						<input type="checkbox" name="arte" value="1">
-						<span>Oro</span>
-					</label>
-				</div>
-				<div class="input-field col l2 m2">
-					<label>
-						<input type="checkbox" name="Danza" value="1">
-						<span>Diamante</span>
-					</label>
-				</div>
-				<div class="input-field col l2 m2">
-					<label>
-						<input type="checkbox" name="literatura" value="1">
-						<span>Rubi</span>
-					</label>
-				</div>
-				<div class="clearfix"></div>
-				<br>
-				<div class="input-field col l12 m12">
-					<i class="material-icons prefix">local_offer</i>
-					<label>¿Desea recibir ofertas por correo?</label>
-				</div>
-				<div class="input-field col l6 m6">
-					<div class="switch">
-						<label>
-							No
-							<input type="checkbox" name="ofertas" value="1">
-							<span class="lever"></span>
-							Si
-						</label>
-					</div>
-				</div>
-				<div class="clearfix"></div>
-				<button type="submit" class="btn waves-effect">
-					<i class="material-icons right">check</i>
-					Guardar Cliente
-				</button>
+
+                <!--<div class="input-field col l3 m3">
+					<i class="material-icons prefix">account_circle</i>
+					<input type="text" formControlName="rol" required>
+					<select name="Rol" formControlName="rol">
+						<option selected disabled>Seleccione Rol</option>
+						<option value="Administrador">Administrador</option>
+						<option value="Cliente">Cliente</option>
+                        <option value="Asesor">Asesor</option>
+                        
+						
+					</select>
+				</div>-->
+				
+				<p class="center-align">
+					<button [disabled]="!fgValidador.valid" class="waves-effect waves-light btn" type="submit"><i class="material-icons right">send</i>Crear</button>
+				  </p>
+		
   			</form>
 		</div> <!-- ROW -->
 	</div> <!-- CONTAINER -->
 	<br>
-</body>
-</html>
+	<html>
+<head>

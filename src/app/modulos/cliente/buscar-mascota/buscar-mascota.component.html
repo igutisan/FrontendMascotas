@@ -1,1 +1,63 @@
-<p>buscar-mascota works!</p>
+
+<table class="table responsive">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>foto</th>
+            <th>Detalle</th>
+            <th>Edad</th>
+            <th>Especie</th>
+            <th>Raza</th>
+            <th>Sexo</th>
+            <th>Peso</th>
+           
+
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let m of listaMascotas">
+            <td>
+                {{m.Nombre}}
+            </td>
+            <td>
+                {{m.Estado}}
+            </td>
+            
+            <td>
+                <img src="{{m.Foto}}" alt=""> 
+            </td>
+            
+            
+            <td>
+                {{m.Detalle}}
+            </td>
+            <td>
+                {{m.Edad}}
+            </td>
+            <td>
+                {{m.Especie}}
+            </td>
+            <td>
+                {{m.Raza}}
+            </td>
+            <td>
+                {{m.Sexo}}
+            </td>
+            <td>
+                {{m.Peso}}
+            </td>
+
+      
+
+            <td>
+                <button class="btn waves-effect green" routerLink="/cliente/editar-mascota/{{m.Id}}/m{{m.planId}}">Editar Mascota<i class="material-icons right">edit</i> </button>
+            </td>
+           
+            <td>
+                <button class="btn waves-effect red"routerLink="/cliente/eliminar-mascota/{{m.Id}}">Borrar Mascota<i class="material-icons right">delete_forever</i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>

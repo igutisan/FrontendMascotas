@@ -1,0 +1,21 @@
+.container{
+    width: 100%;
+}
+
+.boton-asesor-done{
+    height: 20%;
+    font-size: 50%;
+    background-color:olivedrab 
+}
+
+.boton-asesor-clear{
+    height: 40%;
+    font-size: 50%;
+    background-color: brown;
+}
+
+.boton-asesor-send{
+    height: 30%;
+    font-size: 50%;
+    background-color:steelblue 
+}

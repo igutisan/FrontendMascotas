@@ -1,4 +1,67 @@
-<a routerLink="/administracion/crear-usuario" class="btn">Crear Usuario</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Usuario</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+</head>
+<body>
+
+
+    <div class="section container">
+
+        <div class="row">
+            <form class="col s12">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">search</i>
+                    <input type="text"  id="Buscar" class="autocomplete">
+                    <label for="buscar">Buscar usuario...</label>
+                </div>
+
+                
+
+
+            </form>
+        </div>
+    </div>
+    <div class="container" id="respuesta">
+
+    </div>
+    
+    
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js">
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var options ={
+        data:{
+            "usuario1":null,
+            "usuario2":null,
+            "usuario3":null,
+            },
+            onAutocomplete:function(texto){
+                //console.log(`diste clic ${texto}`);
+                respuesta.innerHTML =`<h3>El usuario que buscabas es ${texto}<h3>`;
+            }
+    }
+    
+    var elems = document.querySelectorAll('.autocomplete');
+    var instances = M.Autocomplete.init(elems, options);
+  });
+
+  const respuesta = document.getElementById("respuesta");
+</script>
+
+<button class="btn waves-effect green" routerLink="/administracion/crear-usuario">Crear Usuario<i class="material-icons right">done_all</i></button>
+
 
 <table class="table responsive">
     <thead>
@@ -10,6 +73,7 @@
             <th>Celular</th>
             <th>Correo</th>
             <th>Direccion</th>
+           
         </tr>
     </thead>
     <tbody>
@@ -32,10 +96,28 @@
             <td>
                 {{u.Correo}}
             </td>
+            <td>{{u.Direccion}}
+
+            </td>
+            
+            
           
             <td>
-                <a routerLink="/administracion/editar-usuario/{{u.Id}}" class="btn">Editar usuario</a>
+                <button class="btn waves-effect green"  routerLink="/administracion/editar-usuario/{{u.id}}"> Editar Usuario <i class="material-icons right">edit</i>  </button>
+            </td>
+           
+            <td>
+                <button class="btn waves-effect red" routerLink="/administracion/eliminar-usuario/{{u.id}}" >Borrar Usuario <i class="material-icons right">delete_forever</i> </button>
             </td>
         </tr>
     </tbody>
 </table>
+
+
+</body>
+
+
+</html>
+
+
+
