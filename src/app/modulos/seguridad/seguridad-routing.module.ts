@@ -10,18 +10,18 @@ const routes: Routes = [
   {
   path:"identificar",
   component: IdentificacionComponent,
-  canActivate: [ValidadorSesionGuard]
+  //canActivate: [ValidadorSesionGuard]
 
   },
   {
     path: "cerrarSesion",
     component: CerrarSesionComponent,
-    canActivate: [ValidadorSesionGuard]
+    //canActivate: [ValidadorSesionGuard]
   },
   {
     path: "cambiar-contrasena",
     component: CambioContrasenaComponent,
-    canActivate: [ValidadorSesionGuard]
+    //canActivate: [ValidadorSesionGuard]
   }
 ];
 

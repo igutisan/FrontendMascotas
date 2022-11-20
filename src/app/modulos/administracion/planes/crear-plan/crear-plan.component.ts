@@ -17,7 +17,8 @@ export class CrearPlanComponent implements OnInit {
   fgValidador: FormGroup = this.fb.group({
     'nombre': ['',[Validators.required]],
     'precio': ['',[Validators.required]],
-    'detalle': ['',[Validators.required]]
+    'detalle': ['',[Validators.required]],
+    'foto':['',[Validators.required]]
   });  
   constructor(private fb: FormBuilder,
     private servicioPlan: PlanesService,
@@ -31,10 +32,12 @@ export class CrearPlanComponent implements OnInit {
     let nombre = this.fgValidador.controls["nombre"].value;
     let precio = parseInt(this.fgValidador.controls["precio"].value);
     let detalle = this.fgValidador.controls["detalle"].value;
+    let foto = this.fgValidador.controls["foto"].value;
     let plan = new ModeloPlanes();
     plan.NombrePlan = nombre;
     plan.Precio = precio;
-    plan.Detalle = detalle
+    plan.Detalle = detalle;
+    plan.Foto = foto;
 
     this.servicioPlan.CrearPlan(plan).subscribe((datos: ModeloPlanes) => {
       alert("El plan se creo correctamente")

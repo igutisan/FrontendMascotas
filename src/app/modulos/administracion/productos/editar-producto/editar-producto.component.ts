@@ -16,7 +16,9 @@ export class EditarProductoComponent implements OnInit {
     'id': ['',[Validators.required]],
     'nombre': ['',[Validators.required]],
     'precio': ['',[Validators.required]],
-    'detalle': ['',[Validators.required]]
+    'detalle': ['',[Validators.required]],
+    'foto': ['',[Validators.required]]
+
   });
   constructor(private fb: FormBuilder,
     private servicioProducto: ProductosService,
@@ -34,7 +36,8 @@ export class EditarProductoComponent implements OnInit {
       this.fgValidador.controls["id"].setValue(this.id);
       this.fgValidador.controls["nombre"].setValue(datos.Nombre);
       this.fgValidador.controls["precio"].setValue(datos.Precio); 
-      this.fgValidador.controls["detalle"].setValue(datos.Detalle);       
+      this.fgValidador.controls["detalle"].setValue(datos.Detalle);   
+      this.fgValidador.controls["foto"].setValue(datos.Foto);    
     })
   }
 
@@ -42,11 +45,13 @@ export class EditarProductoComponent implements OnInit {
     let nombre = this.fgValidador.controls["nombre"].value;
     let precio = parseInt(this.fgValidador.controls["precio"].value);
     let detalle = this.fgValidador.controls["detalle"].value;
+    let foto = this.fgValidador.controls["foto"].value;
     let producto = new ModeloProducto();
     producto.Nombre = nombre;
     producto.Precio = precio;
     producto.Detalle = detalle
     producto.Id = this.id
+    producto.Foto = foto
 
     this.servicioProducto.ActualizarProducto(producto).subscribe((datos: ModeloProducto) => {
       alert("El producto se actualizo correctamente")

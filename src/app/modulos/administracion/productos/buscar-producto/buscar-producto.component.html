@@ -4,6 +4,7 @@
 <table class="table responsive">
     <thead>
         <tr>
+            <th></th>
             <th>Nombre</th>
             <th>Precio</th>
             <th>detalle</th>
@@ -12,6 +13,10 @@
     </thead>
     <tbody>
         <tr *ngFor="let p of listadoRegistros">
+
+            <td>
+                <img src="{{p.Foto}}" class="imagen">
+            </td>
             <td>
                 {{p.Nombre}}
             </td>

@@ -19,7 +19,8 @@ export class CrearProductoComponent implements OnInit {
   fgValidador: FormGroup = this.fb.group({
     'nombre': ['',[Validators.required]],
     'precio': ['',[Validators.required]],
-    'detalle': ['',[Validators.required]]
+    'detalle': ['',[Validators.required]],
+    'foto': ['',[Validators.required]]
   });
   constructor(private fb: FormBuilder,
     private servicioProducto: ProductosService,
@@ -32,10 +33,12 @@ export class CrearProductoComponent implements OnInit {
     let nombre = this.fgValidador.controls["nombre"].value;
     let precio = parseInt(this.fgValidador.controls["precio"].value);
     let detalle = this.fgValidador.controls["detalle"].value;
+    let foto = this.fgValidador.controls["foto"].value;
     let producto = new ModeloProducto();
     producto.Nombre = nombre;
     producto.Precio = precio;
-    producto.Detalle = detalle
+    producto.Detalle = detalle;
+    producto.Foto = foto;
 
     this.servicioProducto.CrearProducto(producto).subscribe((datos: ModeloProducto) => {
       alert("El producto se almaceno correctamente")

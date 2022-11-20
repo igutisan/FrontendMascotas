@@ -15,7 +15,8 @@ export class EditarPlanComponent implements OnInit {
     'id': ['',[Validators.required]],
     'nombre': ['',[Validators.required]],
     'precio': ['',[Validators.required]],
-    'detalle': ['',[Validators.required]]
+    'detalle': ['',[Validators.required]],
+    'foto':['',[Validators.required]]
   });
   
   constructor(private fb: FormBuilder,
@@ -34,7 +35,8 @@ export class EditarPlanComponent implements OnInit {
       this.fgValidador.controls["id"].setValue(this.id);
       this.fgValidador.controls["nombre"].setValue(datos.NombrePlan);
       this.fgValidador.controls["precio"].setValue(datos.Precio); 
-      this.fgValidador.controls["detalle"].setValue(datos.Detalle);       
+      this.fgValidador.controls["detalle"].setValue(datos.Detalle);    
+      this.fgValidador.controls["foto"].setValue(datos.Foto)   
     })
   }
 
@@ -42,11 +44,13 @@ export class EditarPlanComponent implements OnInit {
     let nombrePlan = this.fgValidador.controls["nombre"].value;
     let precio = parseInt(this.fgValidador.controls["precio"].value);
     let detalle = this.fgValidador.controls["detalle"].value;
+    let foto= this.fgValidador.controls["foto"].value;
     let plan = new ModeloPlanes();
     plan.NombrePlan = nombrePlan;
     plan.Precio = precio;
     plan.Detalle = detalle
-    plan.Id = this.id
+    plan.Id = this.id;
+    plan.Foto= foto;
 
     this.servicioPlan.ActualizarPlan(plan).subscribe((datos: ModeloPlanes) => {
       alert("El plan se actualizo correctamente")
