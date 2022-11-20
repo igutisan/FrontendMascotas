@@ -72,21 +72,12 @@
   <section>
     <div id="contacto" class="contacto">
       <h2>FORMULARIO DE CONTACTO:</h2>
-      <form class="row g-3 needs-validation" novalidate>
+      <form  [formGroup]="fgValidador" (ngSubmit)="CrearPropecto()" class="row g-3 needs-validation" novalidate>
         <div class="col-md-6">
           <label for="nombre" class="form-label">
             <h4>Nombres</h4>
           </label>
-          <input class="form-control" maxlength="50" id="nombre" required size="50" type="text"/>
-          <div class="invalid-feedback">
-            Este Campo es Requerido
-          </div>
-        </div>
-        <div class="col-md-6">
-          <label for="apellido" class="form-label">
-            <h4>Apellidos</h4>
-          </label>
-          <input maxlength="50" id="apellido" required size="50" type="text"/>
+          <input formControlName="Nombre" class="form-control" maxlength="50" id="nombre" required size="50" type="text"/>
           <div class="invalid-feedback">
             Este Campo es Requerido
           </div>
@@ -95,7 +86,7 @@
           <label for="email" class="form-label">
             <h4>Email</h4>
           </label>
-          <input id="email" required type="email"/>
+          <input formControlName="Correo" id="email" required type="email"/>
           <div class="invalid-feedback">
             Este Campo es Requerido
           </div>
@@ -104,7 +95,7 @@
           <label for="telefono" class="form-label">
             <h4>Celular o Teléfono</h4>
           </label>
-          <input id="telefono" pattern="[0-9]{10}" required type="tel"/>
+          <input formControlName="Celular" id="telefono" pattern="[0-9]{10}" required type="tel"/>
           <div class="invalid-feedback">
             Este Campo es Requerido
           </div>
@@ -113,7 +104,7 @@
           <label for="observaciones" class="form-label">
             <h4>Observaciones y/o Comentarios</h4>
           </label>
-          <textarea cols="150" id="observaciones" rows="12" required></textarea>
+          <textarea formControlName="Detalle" cols="150" id="observaciones" rows="12" required></textarea>
           <div class="invalid-feedback">
             Este Campo es Requerido
           </div>

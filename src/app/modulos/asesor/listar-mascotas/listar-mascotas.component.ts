@@ -15,7 +15,8 @@ export class ListarMascotasComponent implements OnInit {
   ngOnInit(): void {
     this.ObtenerMascotaPendiente();
     this.ObtenerMascotasAceptadas();
-    this.ObetenerMascotasRechazadas();
+    this.ObtenerMascotasRechazadas();
+    this.ObtenerMascotas();
   }
   ObtenerMascotaPendiente(){
     this.mascotaServicio.ObetenerMascotasPorEstado().subscribe((datos:ModeloMascota[]) => {
@@ -28,8 +29,13 @@ export class ListarMascotasComponent implements OnInit {
   })
 
 }
-ObetenerMascotasRechazadas(){
+ObtenerMascotasRechazadas(){
   this.mascotaServicio.ObetenerMascotasRechazadas().subscribe((datos:ModeloMascota[]) => {
+    this.listadoMascota= datos;
+  })
+}
+ObtenerMascotas(){
+  this.mascotaServicio.ObtenerMascotas().subscribe((datos:ModeloMascota[]) => {
     this.listadoMascota= datos;
   })
 }

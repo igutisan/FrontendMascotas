@@ -1,3 +1,5 @@
+import { ModeloUsuario } from './usuario.modelo';
+import { ModeloPlanes } from 'src/app/modelos/planes.modelo';
 export class ModeloMascota
 {
     Id?: string;
@@ -13,5 +15,7 @@ export class ModeloMascota
     Detalle?:string;
     Estado?:string;
     planId?:string;
-    usuarioId?:string
+    usuarioId?:string;
+    plan?: ModeloPlanes;
+    usuario?:ModeloUsuario;
 }

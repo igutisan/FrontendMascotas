@@ -20,10 +20,15 @@
 
 <ul class="sidenav" id="mobile-demo">
   <li><a routerLink="/administracion/usuarios">Personas</a></li>
-      <li *ngIf="seInicioSesion"><a routerLink="/administracion/productos">Productos</a></li>
-    
-      <li *ngIf="seInicioSesion"><a routerLink="seguridad/cambio-contrasena">Cambiar clave</a></li>
-      <li *ngIf="seInicioSesion"><a routerLink="/seguridad/identificacion">Iniciar Sesion</a></li>
-      <li *ngIf="seInicioSesion"><a routerLink="/seguridad/cerrarSesion">Cerrar Sesion</a></li>
+  <li *ngIf="seInicioSesion && Permisos === 'Administrador'"><a routerLink="/administracion/listar-usuarios">Usuarios</a></li>
+  <li *ngIf="seInicioSesion && Permisos === 'Administrador'"><a routerLink="/administracion/listar-productos">Productos</a></li>
+  <li *ngIf="seInicioSesion && Permisos === 'Administrador'"><a routerLink="/administracion/listar-plan">Planes</a></li>
+  <li *ngIf="seInicioSesion && Permisos === 'Asesor'"><a routerLink="/asesor/listado-mascotas">Solicitudes</a></li>
+  <li *ngIf="seInicioSesion && Permisos === 'Cliente'"><a routerLink="/cliente/listar-producto">Productos</a></li>
+  <li *ngIf="seInicioSesion && Permisos === 'Cliente'"><a routerLink="/cliente/listar-planes">Planes</a></li>
+  <li *ngIf="seInicioSesion && Permisos === 'Cliente'"><a routerLink="/cliente/listar-mascota">Mascotas</a></li>
+  <li *ngIf="!seInicioSesion"><a routerLink="/seguridad/identificar">Iniciar Sesion</a></li>
+  <li *ngIf="!seInicioSesion"><a routerLink="/cliente/crear-cliente">Registrarse</a></li>
+  <li *ngIf="seInicioSesion"><a routerLink="/seguridad/cerrarSesion">Cerrar Sesion</a></li>
       
     </ul>

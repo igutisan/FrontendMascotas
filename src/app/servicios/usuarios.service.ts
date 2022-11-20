@@ -1,3 +1,4 @@
+import { ModeloProspecto } from './../modelos/prospecto.modelo';
 import { ModeloProducto } from 'src/app/modelos/producto.modelo';
 import { ModeloUsuario } from './../modelos/usuario.modelo';
 import { Observable } from 'rxjs';
@@ -15,6 +16,16 @@ export class UsuariosService {
     
     this.token = this.SeguridadServicio.ObtenerToken();
   }
+
+
+  CrearProspecto(prospecto: ModeloProspecto): Observable<ModeloProspecto>{
+    return this.http.post<ModeloProspecto>(`${this.url}/prospectos`, prospecto,{
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.token}`
+      })
+    })
+    }
+
 
   ObtenerUsuariosXId(id:string): Observable<ModeloUsuario>{
     return this.http.get<ModeloUsuario>(`${this.url}/usuarios/${id}`)

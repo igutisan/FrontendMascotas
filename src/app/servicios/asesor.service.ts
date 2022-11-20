@@ -16,20 +16,20 @@ export class AsesorService {
   }
 
   ObetenerMascotasPorEstado(): Observable<ModeloMascota[]>{
-    return this.http.get<ModeloMascota[]>(`${this.url}/mascotas?filter[where][Estado]=pendiente`)
+    return this.http.get<ModeloMascota[]>(`${this.url}/mascotas?filter={"where":{"Estado":"pendiente"}, "include":[{"relation":"usuario"},{"relation":"plan"}]}`)
 
    }
    ObetenerMascotasRechazadas(): Observable<ModeloMascota[]>{
-    return this.http.get<ModeloMascota[]>(`${this.url}/mascotas?filter[where][Estado]=Rechazado`)
+    return this.http.get<ModeloMascota[]>(`${this.url}/mascotas?filter={"where":{"Estado":"Rechazado"}, "include":[{"relation":"usuario"},{"relation":"plan"}]}`)
 
    }
    ObetenerMascotasAceptadas(): Observable<ModeloMascota[]>{
-    return this.http.get<ModeloMascota[]>(`${this.url}/mascotas?filter[where][Estado]=Aceptado`)
+    return this.http.get<ModeloMascota[]>(`${this.url}/mascotas?filter={"where":{"Estado":"Aceptado"}, "include":[{"relation":"usuario"},{"relation":"plan"}]}`)
 
    }
 
   ObtenerMascotas():Observable<ModeloMascota[]>{
-    return this.http.get<ModeloMascota[]>(`${this.url}/mascotas`)
+    return this.http.get<ModeloMascota[]>(`${this.url}/mascotas?filter={"include":[{"relation":"usuario"},{"relation":"plan"}]}`)
   }
   ObtenerMascotasXId(id:string): Observable<ModeloMascota>{
     return this.http.get<ModeloMascota>(`${this.url}/mascotas/${id}`)

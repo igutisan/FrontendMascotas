@@ -25,7 +25,7 @@ export class ClienteService {
   }
 
    ObetenerMascotasPorDueno(id: string): Observable<ModeloMascota[]>{
-    return this.http.get<ModeloMascota[]>(`${this.url}/mascotas?filter[where][usuarioId]=${id}`)
+    return this.http.get<ModeloMascota[]>(`${this.url}/mascotas?filter={"where":{"usuarioId":"${id}"}, "include":[{"relation":"plan"}]}`)
 
    }
   
