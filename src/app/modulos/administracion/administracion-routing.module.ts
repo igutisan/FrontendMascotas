@@ -1,7 +1,8 @@
+import { ValidadorSesionGuard } from './../../guardianes/validador-sesion.guard';
 import { CrearPlanComponent } from './planes/crear-plan/crear-plan.component';
 import { NgModule } from '@angular/core';
 
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { BuscarProductoComponent } from './productos/buscar-producto/buscar-producto.component';
 import { CrearProductoComponent } from './productos/crear-producto/crear-producto.component';
 import { EditarProductoComponent } from './productos/editar-producto/editar-producto.component';
@@ -16,47 +17,58 @@ import { EliminarProductoComponent } from './productos/eliminar-producto/elimina
 const routes: Routes = [
   {
     path: 'crear-usuario',
-    component: CrearUsuarioComponent
+    component: CrearUsuarioComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   {
     path: 'editar-usuario/:id',
-    component: EditarUsuarioComponent
+    component: EditarUsuarioComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   {
     path: 'eliminar-usuario/:id',
-    component: EliminarUsuarioComponent
+    component: EliminarUsuarioComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   {
     path: 'listar-usuarios',
-    component: BuscarUsuarioComponent
+    component: BuscarUsuarioComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   {
     path: 'listar-productos',
-    component: BuscarProductoComponent
+    component: BuscarProductoComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   {
     path: 'crear-producto',
-    component: CrearProductoComponent
+    component: CrearProductoComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   {
     path: 'editar-producto/:id',
-    component: EditarProductoComponent
+    component: EditarProductoComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   {
     path: 'eliminar-producto/:id',
-    component: EliminarProductoComponent
+    component: EliminarProductoComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   {
     path: 'crear-plan',
-    component: CrearPlanComponent
+    component: CrearPlanComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   {
     path: 'listar-plan',
-    component: BuscarPlanComponent
+    component: BuscarPlanComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   {
     path: 'editar-plan/:id',
-    component: EditarPlanComponent
+    component: EditarPlanComponent,
+    canActivate: [ValidadorSesionGuard]
   },
 ];
 

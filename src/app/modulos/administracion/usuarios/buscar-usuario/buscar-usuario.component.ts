@@ -11,27 +11,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buscar-usuario.component.css']
 })
 export class BuscarUsuarioComponent implements OnInit {
-  _filterText: string = '';
+  
   listadoUsuario: ModeloUsuario[] = [];
-  usuariosfiltrados:  ModeloUsuario[] = []
+  
   constructor(private usuarioServicio: UsuariosService) { }
 
-  get filterText(){
-    return this._filterText
-  }
-  set filterText(value: string){
-    this._filterText = value
-    usuariosfiltrados: this.filtrarUsuarios(value);
-  }
+ 
 
   ngOnInit(): void {
     this.ObtenerUsuarios();
-    this.ObtenerAsesores();
-    this.ObtenerClientes();
-    this.ObtenerAdministradores();
-    
-
-  
+    //this.ObtenerAsesores();
+    //this.ObtenerClientes();
+    //this.ObtenerAdministradores();
   }
   
   ObtenerUsuarios(){
@@ -55,15 +46,6 @@ export class BuscarUsuarioComponent implements OnInit {
       this.listadoUsuario =datos;
     })
   }
-  filtrarUsuarios(filterTerm:string){
-    if(this.listadoUsuario.length === 0 || this.filterText === ''){
-      return this.listadoUsuario;
-    }else{
-      return this.listadoUsuario.filter((usuarios)=>
-      {
-        return usuarios.Nombre?.toLocaleLowerCase() === filterTerm.toLocaleLowerCase()
-      })
-    }
-  }
+
 
 }

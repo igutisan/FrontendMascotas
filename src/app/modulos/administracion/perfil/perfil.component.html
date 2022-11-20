@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Creacion Usuarios</title>
+	<title>Prueba | Clientes</title>
 
-	  
+	  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+<meta charset="utf-8">
+     <!--CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('select').formSelect();
+                 
+                 
+                 
+            });
+    
+            $(document).on('submit', '#registro', function(e){
+                e.preventDefault();
+                console.log($(this).serialize());
+            });
+        </script>
+
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body class="indigo lighten-5">
-	<nav class="center-align">USUARIOS</nav>
+	<nav class="white"></nav>
 	<br>
 	<div class="container white" style="min-height:  100vh; padding: 20px"> <!-- CONTAINER -->
 		<div class="row"> <!-- ROW -->				
@@ -27,6 +49,7 @@
 					<input formControlName="Documento" type="text" name="documento" id="documento" class="validate" required>
 					<label for="apellidos">Documento</label>
 				</div>
+				<div class="clearfix"></div>
 				
 				<div class="input-field col l5 m5">
 					<i class="material-icons prefix">directions</i>
@@ -49,13 +72,23 @@
 
 
 				<div class="input-field col l6 m5">
-
-						
+					<i class="material-icons prefix">phone_iphone</i>
 					<input formControlName="Rol" type="text" name="Telefono" id="Telefono" class="validate" required>
 					<label for="Telefono">rol</label>
 				</div>
 
-               
+                <!--<div class="input-field col l3 m3">
+					<i class="material-icons prefix">account_circle</i>
+					<input type="text" formControlName="rol" required>
+					<select name="Rol" formControlName="rol">
+						<option selected disabled>Seleccione Rol</option>
+						<option value="Administrador">Administrador</option>
+						<option value="Cliente">Cliente</option>
+                        <option value="Asesor">Asesor</option>
+                        
+						
+					</select>
+				</div>-->
 				
 				<p class="center-align">
 					<button [disabled]="!fgValidador.valid" class="waves-effect waves-light btn" type="submit"><i class="material-icons right">send</i>Crear</button>

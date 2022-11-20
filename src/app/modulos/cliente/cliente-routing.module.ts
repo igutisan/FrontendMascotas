@@ -7,35 +7,45 @@ import { BuscarMascotaComponent } from './buscar-mascota/buscar-mascota.componen
 import { CrearMascotaComponent } from './crear-mascota/crear-mascota.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ValidadorSesionGuard } from 'src/app/guardianes/validador-sesion.guard';
 
 const routes: Routes = [
   {
     path:"crear-mascota/:id",
-    component: CrearMascotaComponent
+    component: CrearMascotaComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   {
     path:"listar-mascota",
-    component:BuscarMascotaComponent
+    component:BuscarMascotaComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   {
     path:"editar-mascota/:id/:idplan",
-    component:EditarMascotaComponent
+    component:EditarMascotaComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   {
     path:"eliminar-mascota/:id",
-    component:EliminarMascotaComponent
+    component:EliminarMascotaComponent,
+    canActivate: [ValidadorSesionGuard]
   },
   {
     path:"listar-producto",
-    component:ListarProductoComponent
+    component:ListarProductoComponent,
+   canActivate: [ValidadorSesionGuard]
+
   },
   {
     path:"listar-planes",
-    component:ListarPlanesComponent
+    component:ListarPlanesComponent,
+  canActivate: [ValidadorSesionGuard]
+    
   },
   {
     path:"crear-cliente",
-    component:CrearClienteComponent
+    component:CrearClienteComponent,
+    canActivate: [ValidadorSesionGuard]
   }
 
 ];

@@ -1,9 +1,10 @@
 <nav>
   <div class="nav-wrapper">
-    <a routerLink="/inicio" class="brand-logo">Logo</a>
+    <a routerLink="/inicio"><img src="../assets/img/1.png" class="imagen" ></a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <!--<li *ngIf="seInicioSesion && Permisos === 'Administrador'" ><a routerLink="/administracion/listar-usuarios">Usuarios</a></li>-->
+      <li *ngIf="seInicioSesion"><a routerLink="/inicio">INICIO</a></li>
       <li *ngIf="seInicioSesion && Permisos === 'Administrador'"><a routerLink="/administracion/listar-usuarios">Usuarios</a></li>
       <li *ngIf="seInicioSesion && Permisos === 'Administrador'"><a routerLink="/administracion/listar-productos">Productos</a></li>
       <li *ngIf="seInicioSesion && Permisos === 'Administrador'"><a routerLink="/administracion/listar-plan">Planes</a></li>
@@ -11,6 +12,7 @@
       <li *ngIf="seInicioSesion && Permisos === 'Cliente'"><a routerLink="/cliente/listar-producto">Productos</a></li>
       <li *ngIf="seInicioSesion && Permisos === 'Cliente'"><a routerLink="/cliente/listar-planes">Planes</a></li>
       <li *ngIf="seInicioSesion && Permisos === 'Cliente'"><a routerLink="/cliente/listar-mascota">Mascotas</a></li>
+      <li *ngIf="!seInicioSesion"><a routerLink="/inicio">Inicio</a></li>
       <li *ngIf="!seInicioSesion"><a routerLink="/seguridad/identificar">Iniciar Sesion</a></li>
       <li *ngIf="!seInicioSesion"><a routerLink="/cliente/crear-cliente">Registrarse</a></li>
       <li *ngIf="seInicioSesion"><a routerLink="/seguridad/cerrarSesion">Cerrar Sesion</a></li>

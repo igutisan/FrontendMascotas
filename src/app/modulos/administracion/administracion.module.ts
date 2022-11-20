@@ -8,6 +8,7 @@ import { EditarPlanComponent } from './planes/editar-plan/editar-plan.component'
 import { EliminarPlanComponent } from './planes/eliminar-plan/eliminar-plan.component';
 import { BuscarPlanComponent } from './planes/buscar-plan/buscar-plan.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 
@@ -18,7 +19,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
      CrearPlanComponent,
      EditarPlanComponent,
      EliminarPlanComponent,
-     BuscarPlanComponent
+     BuscarPlanComponent,
+     PerfilComponent
   ],
   imports: [
     CommonModule,
